@@ -14,3 +14,12 @@ con.promise().query("SELECT 1")
   .then( () => con.end());
 
 */
+
+const mysql = require('mysql2');
+const inquirer = require('inquirer');
+
+const connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    database: 'test'
+  });
