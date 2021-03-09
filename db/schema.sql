@@ -19,7 +19,7 @@ CREATE TABLE employee (
     id INTEGER PRIMARY KEY,
     first_name VARCHAR(30) NO NULL,
     last_name VARCHAR(30) NO NULL,
-    role_id INTEGER UNSIGNED,
+    role_id INTEGER UNSIGNED NO NULL,
     manager_id INTEGER UNSIGNED,
     CONSTRAINT fk_role FOREIGN KEY (role_id) REFERENCES _role(id) ON DELETE SET NULL,
     CONSTRAINT fk_employee FOREIGN KEY (manager_id) REFERENCES employee(id) ON DELETE SET NULL
