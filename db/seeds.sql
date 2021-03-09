@@ -4,10 +4,10 @@ VALUES
     ('Tehnology'),
     ('Business');
 
-INSERT INTO _role (title, salary, department_id)
+INSERT INTO role (title, salary, department_id)
 VALUES 
     ('Cashier', 13.50, 1),
-    ('Financial Analyst', 25.24, 3)
+    ('Financial Analyst', 25.24, 3),
     ('Software Engineer', 40, 2),
     ('Cyber Engineer', 45.15, 2), 
     ('CEO', 70, 3),
