@@ -1,20 +1,3 @@
-/*
-
-// get the client
-const mysql = require('mysql2');
-// create the connection
-const con = mysql.createConnection(
-  {host:'localhost', user: 'root', database: 'test'}
-);
-con.promise().query("SELECT 1")
-  .then( ([rows,fields]) => {
-    console.log(rows);
-  })
-  .catch(console.log)
-  .then( () => con.end());
-
-*/
-
 const mysql = require('mysql2');
 const inquirer = require('inquirer');
 const cTable = require('console.table');
@@ -25,15 +8,8 @@ const connection = mysql.createConnection({
     password: 'Jamaica',
     database: 'tracker'
 });
-function addRole() {
 
-}
-function addDepartment(a) {
-    console.log(a);
-    connection.promise().query('INSERT INTO department (name) VALUES (?)', [a])
-        .catch(console.log);
-}
-async function options(action) {
+function options(action) {
     if (action === 'Exit') {
         return 0;
     }
@@ -100,9 +76,7 @@ async function options(action) {
 
                     departmentArray.push({value: item.id, name: item.name});
                     
-                })
-                
-                console.log(departmentArray);
+                }) 
                 inquirer
                     .prompt(
                         [
@@ -141,7 +115,6 @@ async function options(action) {
                             }
                         ]
                     ).then(({ department, salary, title }) => {
-                        console.log(department);
                         connection.promise().query("INSERT INTO role (title, salary, department_id) VALUES (?, ?, ?)", [title, salary, department] )
                         .catch(console.log);  
                     })
@@ -158,7 +131,6 @@ async function options(action) {
                     managerArray.push({value: item.id, name: item.first_name + ' ' + item.last_name});
                     
                 })
-                console.log(managerArray);
                 let roleArray = [];
                 connection.promise()
                     .query("SELECT * FROM role")
@@ -168,8 +140,6 @@ async function options(action) {
                             roleArray.push({value: item.id, name: item.title});
                             
                         })
-                        
-                        console.log(roleArray);
                         inquirer
                             .prompt(
                                 [
@@ -232,7 +202,6 @@ async function options(action) {
                     employeeArray.push({value: item.id, name: item.first_name + ' ' + item.last_name});
                     
                 })
-                console.log(employeeArray);
                 let roleArray = [];
                 connection.promise()
                     .query("SELECT * FROM role")
@@ -242,8 +211,6 @@ async function options(action) {
                             roleArray.push({value: item.id, name: item.title});
                             
                         })
-                        
-                        console.log(roleArray);
                         inquirer
                             .prompt(
                                 [
@@ -289,9 +256,4 @@ function prompt() {
         });
 }
 
-const init = () => {
-    prompt();
-
-}
-
-init();
+prompt();
