@@ -26,6 +26,8 @@ Clone repository from [github.com/kaylabartley/employeetracker](github.com/kayla
 
 From your command-line, change your directory to the repository and run application by typing npm start. Choosing EXIT will stop the application. To return to the command line, enter Ctrl-C. 
 
+[Walkthrough Video](https://youtu.be/zBLzqxAjAFM)
+
 
 ## Licenses
 
